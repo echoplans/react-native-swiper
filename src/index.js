@@ -100,6 +100,7 @@ export default class extends Component {
   static propTypes = {
     horizontal: PropTypes.bool,
     children: PropTypes.node.isRequired,
+    containerStyle: View.propTypes.style,
     style: View.propTypes.style,
     pagingEnabled: PropTypes.bool,
     showsHorizontalScrollIndicator: PropTypes.bool,
@@ -627,8 +628,8 @@ export default class extends Component {
     return (
       <View style={[styles.container, {
         width: state.width,
-        height: state.height
-      }]}>
+        height: state.height},
+        props.containerStyle]}>
         {this.renderScrollView(pages)}
         {props.showsPagination && (props.renderPagination
           ? this.props.renderPagination(state.index, state.total, this)
